@@ -1,7 +1,7 @@
 import { ROM_NUM } from "../src/roman.types";
 
 export function romanToDecimal(roman: string): number {
-  const charArray = roman
+  return roman
     .split("")
     .reduce(
       (
@@ -21,13 +21,8 @@ export function romanToDecimal(roman: string): number {
           : [...romArray];
       },
       []
-    );
-  const decimal = charArray.reduce(
-    (decCount: number, charString: string): number => {
+    )
+    .reduce((decCount: number, charString: string): number => {
       return (decCount += ROM_NUM[charString]);
-    },
-    0
-  );
-  console.log(decimal);
-  return decimal;
+    }, 0);
 }
