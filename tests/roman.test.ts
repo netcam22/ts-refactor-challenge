@@ -10,3 +10,13 @@ describe("test simple conversion of single numeral", () => {
     expect(romanToDecimal(roman)).toBe(decimal);
   });
 });
+
+describe("test conversion of roman made with multiple numerals", () => {
+  //Arrange
+  const roman: string = "MCXCI";
+  const decimal: romanNumeralKey["key"] = 1191;
+  //Act Assert
+  test("convert MCXCI in roman to 1191 in decimal", () => {
+    expect(romanToDecimal(roman)).toBe(decimal);
+  });
+});
