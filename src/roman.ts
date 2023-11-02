@@ -19,6 +19,7 @@ export function romanToDecimal(roman: string): number {
         ROM_NUM[`${charArray[i]}${charArray[i + 1]}`]
           ? `${charArray[i]}${charArray[i + 1]}`
           : char;
+
       return romArray[i - 1] === undefined || romArray[i - 1].length === 1
         ? [...romArray, thisNumeral]
         : [...romArray];
