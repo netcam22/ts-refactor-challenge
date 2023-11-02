@@ -9,17 +9,12 @@ export function romanToDecimal(roman: string): number {
         char: string,
         i: number,
         charArray: Array<string>
-      ): number => {
-        const thisNumeral =
-          i > 0 && ROM_NUM[`${charArray[i - 1]}${char}`]
-            ? "skip"
-            : ROM_NUM[`${char}${charArray[i + 1]}`]
-            ? `${char}${charArray[i + 1]}`
-            : char;
-        return thisNumeral !== "skip"
-          ? (decCount += ROM_NUM[thisNumeral])
-          : decCount;
-      },
+      ): number =>
+        i > 0 && ROM_NUM[`${charArray[i - 1]}${char}`]
+          ? decCount
+          : ROM_NUM[`${char}${charArray[i + 1]}`]
+          ? (decCount += ROM_NUM[`${char}${charArray[i + 1]}`])
+          : (decCount += ROM_NUM[char]),
       0
     );
 }
