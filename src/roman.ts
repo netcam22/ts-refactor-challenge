@@ -5,11 +5,11 @@ export function romanToDecimal(roman: string): number {
     .split("")
     .reduce(
       (
-        romArray: Array<string>,
+        decCount: number,
         char: string,
         i: number,
         charArray: Array<string>
-      ): Array<string> => {
+      ): number => {
         const thisNumeral =
           i > 0 && ROM_NUM[`${charArray[i - 1]}${char}`]
             ? "skip"
@@ -17,12 +17,9 @@ export function romanToDecimal(roman: string): number {
             ? `${char}${charArray[i + 1]}`
             : char;
         return thisNumeral !== "skip"
-          ? [...romArray, thisNumeral]
-          : [...romArray];
+          ? (decCount += ROM_NUM[thisNumeral])
+          : decCount;
       },
-      []
-    )
-    .reduce((decCount: number, charString: string): number => {
-      return (decCount += ROM_NUM[charString]);
-    }, 0);
+      0
+    );
 }
