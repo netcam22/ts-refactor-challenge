@@ -106,4 +106,8 @@ describe("test conversion of roman made with multiple numerals", () => {
   test("convert CDXCIV in roman to 494 in decimal", () => {
     expect(romanToDecimal("CDXCIV")).toBe(494);
   });
+
+  test("convert CDXLIV in roman to 444 in decimal", () => {
+    expect(romanToDecimal("CDXLIV")).toBe(444);
+  });
 });
