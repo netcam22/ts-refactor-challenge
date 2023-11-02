@@ -10,9 +10,6 @@ export function romanToDecimal(roman: string): number {
         i: number,
         charArray: Array<string>
       ): Array<string> => {
-        // if this one and the next one combined make a double, don't count it
-        // if this one and the previous one is a double, use this one and the previous one
-        console.log(ROM_NUM[`${charArray[i - 1]}${char}`]);
         const thisNumeral =
           i > 0 && ROM_NUM[`${charArray[i - 1]}${char}`]
             ? "skip"
@@ -25,8 +22,6 @@ export function romanToDecimal(roman: string): number {
       },
       []
     );
-  console.log(charArray);
-  // reduce again to count up values
   const decimal = charArray.reduce(
     (decCount: number, charString: string): number => {
       return (decCount += ROM_NUM[charString]);
