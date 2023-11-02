@@ -5,16 +5,16 @@ export function romanToDecimal(roman: string): number {
     .split("")
     .reduce(
       (
-        decCount: number,
+        decimalCount: number,
         char: string,
         i: number,
         charArray: Array<string>
       ): number =>
         i > 0 && ROM_NUM[`${charArray[i - 1]}${char}`]
-          ? decCount
+          ? decimalCount
           : ROM_NUM[`${char}${charArray[i + 1]}`]
-          ? (decCount += ROM_NUM[`${char}${charArray[i + 1]}`])
-          : (decCount += ROM_NUM[char]),
+          ? (decimalCount += ROM_NUM[`${char}${charArray[i + 1]}`])
+          : (decimalCount += ROM_NUM[char]),
       0
     );
 }
