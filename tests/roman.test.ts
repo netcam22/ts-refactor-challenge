@@ -1,6 +1,16 @@
 import { romanToDecimal } from "../src/roman";
 import { romanNumeralKey } from "../src/roman.types";
 
+describe("test for empty string", () => {
+  // Arrange
+  const roman: string = "";
+  const decimal: romanNumeralKey["key"] = 0;
+  //Act/Assert
+  test("convert empty string to be 0", () => {
+    expect(romanToDecimal(roman)).toBe(decimal);
+  });
+});
+
 describe("test simple conversion of single character numeral", () => {
   // Arrange
   const roman: string = "X";
@@ -80,5 +90,20 @@ describe("test conversion of roman made with multiple numerals", () => {
   });
   test("convert MXXXIX in roman to 1039 in decimal", () => {
     expect(romanToDecimal("MXXXIX")).toBe(1039);
+  });
+  test("convert MMCDXCIV in roman to 2494 in decimal", () => {
+    expect(romanToDecimal("MMCDXCIV")).toBe(2494);
+  });
+
+  test("convert MMCDXCIV in roman to 2999 in decimal", () => {
+    expect(romanToDecimal("MMCMXCIX")).toBe(2999);
+  });
+
+  test("convert MMM in roman to 3000 in decimal", () => {
+    expect(romanToDecimal("MMM")).toBe(3000);
+  });
+
+  test("convert CDXCIV in roman to 494 in decimal", () => {
+    expect(romanToDecimal("CDXCIV")).toBe(494);
   });
 });
